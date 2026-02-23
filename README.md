@@ -19,6 +19,7 @@ It utilizes Anthropic's [Claude Code](https://github.com/anthropics/claude-code)
   - Web Apps / Mini Apps (`mini-app-builder`)
   - Payment Gateways (`payment-gateway-setup`)
 - **Memory & Session Handoff**: Dedicated commands (`/save-state`, `/resume`) and files (`progress.md`, `bot_manifest.md`) to maintain context across sessions and prevent token bloat.
+- **Intelligent Git Commits**: Enforces a highly structured, context-rich commit message format to act as an informative history log for AI agents and humans alike.
 
 ## 🚀 Getting Started
 
