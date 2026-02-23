@@ -105,7 +105,6 @@ When you return, start Claude Code and run:
 ├── commands/                  # Custom slash commands
 │   ├── init-bot.md
 │   ├── add-flow.md
-│   ├── commit.md              # Auto-generates structured commit
 │   ├── save-state.md
 │   └── resume.md
 ├── hooks/
