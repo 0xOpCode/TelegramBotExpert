@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [{
+          "type": "command",
+          "command": "cat .claude/memory/temp_context.md 2>/dev/null || echo 'No active handoff.' && cat .claude/memory/bot_manifest.md 2>/dev/null || echo 'Run /init-bot to bind tech stack.'"
+        }]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [{
+          "type": "command",
+          "command": "echo 'Session ending. Run /save-state if context should be preserved.' >&2"
+        }]
+      }
+    ]
+  }
+}
