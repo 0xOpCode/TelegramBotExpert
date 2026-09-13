@@ -1,126 +1,139 @@
-# 🤖 TelegramBotExpert (Claude-Architect-Prime)
+<div align="center">
 
-**TelegramBotExpert** is an advanced, language-agnostic, agentic AI architecture designed to build, scale, and maintain Telegram Bots and Mini Apps. It acts as an autonomous Chief Architect, UX Engineer, and Security Auditor, specifically tailored for the complexities of the Telegram Bot API.
+  # 🤖 TelegramBotExpert
+  ### Claude-Architect-Prime: Autonomous Telegram Bot & Mini App Architecture
 
-It utilizes Anthropic's [Claude Code](https://github.com/anthropics/claude-code) native primitives (`.claude/`) to scaffold a centralized, scalable, memory-persistent, and hook-driven framework.
+  [![Claude Code](https://img.shields.io/badge/Powered%20By-Claude%20Code-D97706.svg?style=flat-square&logo=anthropic&logoColor=white)](https://github.com/anthropics/claude-code)
+  [![Telegram API](https://img.shields.io/badge/Telegram-Bot%20%26%20Mini%20Apps-26A5E4.svg?style=flat-square&logo=telegram&logoColor=white)](https://core.telegram.org/bots)
+  [![Architecture](https://img.shields.io/badge/Architecture-Sub--Agent%20Orchestration-8A2BE2.svg?style=flat-square)](#-architecture-overview)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+  [![Maintained](https://img.shields.io/badge/Maintained%20by-0xOpCode-orange.svg?style=flat-square)](https://github.com/0xOpCode)
 
-## ✨ Features
+  <p align="center">
+    <b>An enterprise-grade, language-agnostic agentic framework designed to build, scale, and maintain high-concurrency Telegram Bots and Telegram Mini Apps (TMAs).</b>
+  </p>
 
-- **Language & Framework Agnostic**: Initialize the expert for *any* stack (Python/aiogram, Node/Telegraf, Go/telebot, Rust/teloxide, etc.).
-- **Agent Orchestration**: Specialized sub-agents automatically handle different domains of bot development:
-  - `tg-architect`: System design, DB schema modeling, FSM (state machine) planning, and Webhook vs. Polling strategies.
-  - `tg-ux-engineer`: Crafting Inline Keyboards, conversational text, Inline Queries, and Telegram Mini Apps.
-  - `tg-sec-auditor`: Input sanitization, rate limiting, role-based access control, and securing webhook endpoints.
-- **Advanced Bot Skills**: On-demand prompt injection modules for:
-  - Finite State Machine (`fsm-builder`)
-  - Database Schemas (`create-db-schema`)
-  - Webhook Architecture (`setup-webhook`)
-  - Internationalization (`i18n-builder`)
-  - Web Apps / Mini Apps (`mini-app-builder`)
-  - Payment Gateways (`payment-gateway-setup`)
-- **Memory & Session Handoff**: Dedicated commands (`/save-state`, `/resume`) and files (`progress.md`, `bot_manifest.md`) to maintain context across sessions and prevent token bloat.
-- **Intelligent Git Commits**: Enforces a highly structured, context-rich commit message format to act as an informative history log for AI agents and humans alike.
+  <p align="center">
+    <a href="#-specialized-sub-agents">Sub-Agents</a> •
+    <a href="#-advanced-bot-skills">Skills</a> •
+    <a href="#-getting-started">Getting Started</a> •
+    <a href="#-architecture-overview">Architecture</a> •
+    <a href="#-workflow-commands">Commands</a>
+  </p>
+
+</div>
+
+---
+
+## 📌 Overview
+
+**TelegramBotExpert** acts as an autonomous Chief Architect, Lead UX Engineer, and Security Auditor inside [Claude Code](https://github.com/anthropics/claude-code). Rather than relying on generic LLM prompts, it provides specialized domain sub-agents, memory manifests, and state machine builders tuned specifically for the Telegram Bot API lifecycle.
+
+---
+
+## 🤖 Specialized Sub-Agents
+
+| Agent | Responsibility | Core Deliverables |
+| :--- | :--- | :--- |
+| `tg-architect` | **System & Data Architecture** | FSM conversation models, DB schemas (PostgreSQL / Redis), Webhook scaling vs Long Polling strategies. |
+| `tg-ux-engineer` | **Conversational UI & Mini Apps** | Inline keyboard pagination, deep-linking routing, message templating, and Telegram Web App (TMA) viewports. |
+| `tg-sec-auditor` | **Security & Compliance** | Webhook secret validation, HMAC signature verification, user rate-limiting, and RBAC admin protections. |
+
+---
+
+## ⚡ Advanced Bot Skills
+
+On-demand prompt injection modules designed to generate production patterns:
+
+- 🔄 **`fsm-builder`**: Scaffolds resilient multi-step conversation flows with input fallbacks.
+- 🗄️ **`create-db-schema`**: Generates high-efficiency relational and document storage for Telegram sessions.
+- 🌐 **`setup-webhook`**: Configures production NGINX / FastAPI / Express reverse-proxy webhook endpoints with SSL.
+- 🌍 **`i18n-builder`**: Modular multi-language string dictionaries and locale detection.
+- 📱 **`mini-app-builder`**: Fullstack Telegram Mini App (TMA) scaffolds integrating Telegram WebApp JS SDK.
+- 💳 **`payment-gateway-setup`**: Telegram native Stars, Stripe, and Crypto invoice integrations.
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-1. You must have [Claude Code](https://github.com/anthropics/claude-code) installed and authenticated.
-2. Initialize your underlying bot project (e.g., `npm init`, `poetry new`, `go mod init`) in the same directory.
+1. Install and authenticate [Claude Code](https://github.com/anthropics/claude-code).
+2. Works with any stack: **Python** (`aiogram`, `python-telegram-bot`), **Node.js** (`grammY`, `telegraf`), **Go** (`telebot`), **Rust** (`teloxide`).
 
 ### Installation
-
-Clone this repository or copy the `.claude/` directory and `CLAUDE.md` into your existing bot project's root:
+Clone into your bot project's workspace:
 
 ```bash
-git clone https://github.com/yourusername/TelegramBotExpert.git my-bot-project
-cd my-bot-project
+git clone https://github.com/0xOpCode/TelegramBotExpert.git .claude-expert
+cp -r .claude-expert/.claude .
+cp .claude-expert/CLAUDE.md .
+rm -rf .claude-expert
 ```
 
-### 1. Initialize the Expert
-
-Bind the expert to your specific tech stack. Run the Claude Code CLI:
+### 1. Initialize for Your Tech Stack
+Launch Claude Code CLI in your project directory:
 
 ```bash
 claude
 ```
 
-Then, use the custom `/init-bot` slash command, specifying your language and framework:
-
+Run the stack initialization command:
 ```text
-/init-bot nodejs/telegraf
-```
-*(Or `/init-bot python/aiogram3`, `/init-bot go/telebot`, etc.)*
-
-This will automatically configure all agents, skills, and memory manifests to specialize in your chosen ecosystem.
-
-### 2. Scaffold a Flow
-
-Want to build a multi-step conversation? Just ask the orchestrator:
-
-```text
-/add-flow "User registration wizard that asks for name and email with validation, using an Inline Keyboard"
-```
-The `tg-architect` will design the state machine, the `tg-ux-engineer` will write the UI/prompts, and the code will be written to your project.
-
-### 3. Build a Mini App
-
-Need a Telegram Web App? Use the specialized skill:
-
-```text
-Use the mini-app-builder skill to create a storefront Mini App integrated with the bot.
+/init-bot python/aiogram3
+# or: /init-bot nodejs/grammy
+# or: /init-bot go/telebot
 ```
 
-### 4. Save Your State
-
-When you're done for the day or your context window is getting full, save your progress:
-
+### 2. Scaffold a Conversational Flow
 ```text
-/save-state
+/add-flow "User onboarding flow with email validation, referral codes, and inline keyboard confirmation"
 ```
-This writes a clean handoff to `.claude/memory/temp_context.md`. You can safely run `/clear` or exit.
 
-When you return, start Claude Code and run:
-```text
-/resume
-```
+### 3. Session Handoff & Memory Persistence
+Preserve tokens and agent context across long engineering sessions:
+- Save session memory: `/save-state`
+- Resume from previous milestone: `/resume`
+
+---
 
 ## 📂 Architecture Overview
 
 ```text
 .claude/
-├── settings.json              # Permissions and model config
-├── agents/                    # Declarative sub-agents (auto-invoked)
-│   ├── tg-architect.md
-│   ├── tg-ux-engineer.md
-│   └── tg-sec-auditor.md
-├── skills/                    # On-demand prompt injection modules
-│   ├── tg-api-navigator/      # Codebase routing
+├── settings.json              # Autonomous permissions and configuration
+├── agents/                    # Domain-specialized sub-agents
+│   ├── tg-architect.md        # System design & DB schemas
+│   ├── tg-ux-engineer.md      # Inline keyboards & Mini App UI
+│   └── tg-sec-auditor.md      # Cryptographic verification & security
+├── skills/                    # Specialized injection skills
+│   ├── tg-api-navigator/      # Endpoint and routing utilities
 │   ├── fsm-builder/           # Conversation state management
-│   ├── create-db-schema/      # DB architecture
-│   ├── setup-webhook/         # Webhook endpoints
-│   ├── i18n-builder/          # Multi-language support
-│   ├── mini-app-builder/      # Telegram Web Apps
-│   └── payment-gateway-setup/ # Telegram Payments & Crypto
-├── commands/                  # Custom slash commands
+│   ├── create-db-schema/      # Optimized database modeling
+│   ├── setup-webhook/         # Webhook infrastructure
+│   ├── i18n-builder/          # Multilingual dictionary pipelines
+│   ├── mini-app-builder/      # Telegram Mini Apps (TMA)
+│   └── payment-gateway-setup/ # Telegram Payments & Stars
+├── commands/                  # Orchestration slash commands
 │   ├── init-bot.md
 │   ├── add-flow.md
 │   ├── save-state.md
 │   └── resume.md
 ├── hooks/
-│   └── hooks.json             # Pre/Post tool automation (SessionStart/Stop)
-├── memory/
-│   ├── bot_manifest.md        # The living architecture document
-│   ├── progress.md            # Milestones
-│   ├── temp_context.md        # Session handoff state
-│   └── master_protocol.md     # Core rules for Telegram bots
-└── CLAUDE.md                  # Lightweight entry point
+│   └── hooks.json             # Pre/Post session state management
+└── memory/
+    ├── bot_manifest.md        # Living architecture spec
+    ├── progress.md            # Sprint milestones
+    └── master_protocol.md     # Engineering rules of engagement
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! If you have a specific Telegram Bot pattern, architecture, or skill you'd like to add, please open a PR.
+---
 
 ## 📄 License
 
-MIT License
+Distributed under the **MIT License**.
+
+---
+
+## 👨‍💻 Maintainer
+
+Engineered by **[0xOpCode](https://github.com/0xOpCode)**.
